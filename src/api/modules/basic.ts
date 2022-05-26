@@ -17,7 +17,7 @@ class Basic extends Abstract {
       * @param {string} captchaCodeToken 图形码token
       */
   authLogin (data: AuthLoginType|Iobject) {
-    return this.postReq({ url: 'userDomain/admin/v1/user/login', data })
+    return this.postReq({ url: 'api/login', data })
   }
 }
 

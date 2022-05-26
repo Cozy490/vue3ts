@@ -37,7 +37,7 @@ export default {
         const res = await orderApi.orderList(data)
         console.log(res, '-----')
       } catch (error) {
-        alert(JSON.stringify(error))
+        // alert(JSON.stringify(error))
       }
       // alert(process.env.VUE_APP_BaseURL)
     }

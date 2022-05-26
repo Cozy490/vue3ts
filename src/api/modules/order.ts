@@ -3,7 +3,7 @@ import { Iobject } from '@/utils/commonInterface'
 import Abstract from '../abstract'
 class Order extends Abstract {
   orderList (data: OrderList|Iobject) {
-    return this.postReq({ url: 'userDomain/admin/v1/orderList', data })
+    return this.postReq({ url: '/api/orderList', data })
   }
 }
 // 单列模式返回对象

@@ -23,7 +23,7 @@ class Abstract {
          //  'x-language': storage('localstorage').get('i18n')
        })
 
-       // url解析
+       // url解析 暂不用api接口查询字典
        //  const _url = (url as string).split('.')
        //  url = getUrl(_url[0], _url[1])
        //  console.log(_url[0], '2222', _url[1])
@@ -39,20 +39,20 @@ class Abstract {
            responseType
          }).then((res) => {
            // 200:服务端业务处理正常结束
-           if (res.status === 200) {
-             if (res.data.success) {
-               resolve({ status: true, message: 'success', data: res.data?.data, origin: res.data })
+           if (res.data.status === 200) {
+             if (Object.keys(res.data.data).length === 0) {
+               Toast('暂无数据')
              } else {
-               //  Vue.prototype.$message({ type: 'error', message: res.data?.errorMessage || (url + '请求失败') })
-               Toast(`${res.data?.errorMessage} || (${url} + '请求失败')`)
-               resolve({ status: false, message: res.data?.errorMessage || (url + '请求失败'), data: res.data?.data, origin: res.data })
+               //  alert(JSON.stringify(res.data.data))
+               resolve(res.data.data)
              }
            } else {
-             resolve({ status: false, message: res.data?.errorMessage || (url + '请求失败'), data: null || {} })
+             resolve({ status: false, message: res.data?.errorMessage || (url + '请求失败3'), data: null || {} })
            }
+           //  目前数据有问题，等有正式数据在修改
          }).catch((err) => {
-           const message = err?.data?.errorMessage || err?.message || (url + '请求失败')
-           Toast(message)
+           const message = err?.data?.errorMessage || err?.message || (url + '请求失败4')
+           Toast(`${message}2222`)
            // eslint-disable-next-line
                  reject({ status: false, message, data: null});
          })
