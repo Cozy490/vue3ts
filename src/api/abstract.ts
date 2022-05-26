@@ -17,7 +17,7 @@ class Abstract {
        ContentType: 'application/json;charset=UTF-8'
      }
 
-     private apiAxios ({ baseURL = this.baseURL, headers = this.headers, method, url, data, params, responseType }: AxiosRequest): Promise<CustomResponse> {
+     private apiAxios ({ baseURL = this.baseURL, headers = this.headers, method, url, data, params, responseType }: AxiosRequest): Promise<Iobject> {
        Object.assign(headers, {
          //  token: storage().get('token') || storage('localstorage').get('token'),
          //  'x-language': storage('localstorage').get('i18n')

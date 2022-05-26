@@ -19,6 +19,14 @@ class Basic extends Abstract {
   authLogin (data: AuthLoginType|Iobject) {
     return this.postReq({ url: 'api/login', data })
   }
+
+  /**
+   *
+   * @param {string}
+   */
+  authCookie (data: AuthLoginType|Iobject) {
+    return this.postReq({ url: '/api/authCookie', data })
+  }
 }
 
 // 单列模式返回对象
