@@ -12,7 +12,6 @@ import { Toast } from 'vant'
 
 class Abstract {
      protected baseURL: string = process.env.VUE_APP_BaseURL;
-
      protected headers: Iobject = {
        ContentType: 'application/json;charset=UTF-8'
      }

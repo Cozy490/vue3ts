@@ -1,18 +1,19 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div>
+    {{res}}
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-import HelloWorld from '@/components/HelloWorld.vue' // @ is an alias to /src
-
-export default defineComponent({
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
+<script setup lang="ts">
+//  hooks写法
+import { onMounted } from 'vue'
+import homehooks from '@/hooks/homehooks'
+const { res, testEnv2 } = homehooks()
+onMounted(() => {
+  testEnv2()
 })
 </script>
+
+<style lang="less" scoped>
+
+</style>

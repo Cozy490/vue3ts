@@ -10,6 +10,7 @@ import { basicApi, orderApi } from '@/api/index'
 import { Button } from 'vant'
 
 export default {
+  name: 'About',
   components: {
     [Button.name]: Button
   },
