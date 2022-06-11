@@ -1,6 +1,7 @@
 <template>
-  <div>
-    {{res}}
+  <div class="comtainer">
+    <!-- {{res}} -->
+    试试
   </div>
 </template>
 
@@ -15,5 +16,7 @@ onMounted(() => {
 </script>
 
 <style lang="less" scoped>
-
+.comtainer{
+  font-family: 'youai';
+}
 </style>
