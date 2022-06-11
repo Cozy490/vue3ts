@@ -16,5 +16,7 @@ onMounted(() => {
 </script>
 
 <style lang="less" scoped>
-
+.comtainer{
+  font-family: 'youai';
+}
 </style>
