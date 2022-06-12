@@ -22,7 +22,24 @@ const routes: Array<RouteRecordRaw> = [
     path: '/home',
     name: 'Home',
     component: () => import('../views/Home.vue')
+  },
+  {
+    path: '/winningList',
+    name: 'WinningList',
+    component: () => import('../views/winningName/WinningList.vue')
+  },
+  {
+    path: '/rankingList',
+    name: 'RankingList',
+    component: () => import('../views/rankingList/RankingList.vue')
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: '404',
+    component: () => import('../views/login/Login.vue')
+
   }
+
 ]
 
 const router = createRouter({

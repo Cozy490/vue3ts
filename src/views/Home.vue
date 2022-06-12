@@ -1,6 +1,9 @@
 <template>
   <div class="comtainer">
     <!-- {{res}} -->
+    <audio controls src="http://music.163.com/song/media/outer/url?id=1908673805.mp3">
+      <source type="audio/mpeg">
+    </audio>
     试试
   </div>
 </template>
