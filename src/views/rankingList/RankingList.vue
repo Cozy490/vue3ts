@@ -39,7 +39,7 @@
         <div class="back-btn"></div>
       </div>
     </div>
-    <Dialog :level="2" :time="10" :prizeArr="prizeArr"></Dialog>
+    <Dialog :level="2" :time="10" :prizeArr="prizeArr" :dialogShow="true"></Dialog>
   </div>
 </template>
 

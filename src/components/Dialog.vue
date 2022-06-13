@@ -53,12 +53,38 @@ export default {
     1：第几关 level(number)
     2：累计用时：time(number)
     3：通关奖品：prizeArr(Array) prizeArr:[{prizeImg:'',prizeText:''}]
+    4: 弹窗显示：dialogShow(Boolean)
  */
-  props: ['level', 'time', 'prizeArr'],
-  setup () {
+  // props: ['level', 'time', 'prizeArr', 'dialogShow'],
+  props: {
+    level: {
+      default: 0,
+      required: true,
+      type: [String, Number]
+    },
+    time: {
+      default: 0,
+      required: true,
+      type: [String, Number]
+    },
+    prizeArr: {
+      type: Array,
+      required: true,
+      default () {
+        return []
+      }
+
+    },
+    dialogShow: {
+      type: Boolean,
+      required: true,
+      default: false
+    }
+  },
+  setup (props) {
     const state = reactive({
       count: 0,
-      dialog: true
+      dialog: props.dialogShow
     })
     const closeDialog = () => {
       state.dialog = false
