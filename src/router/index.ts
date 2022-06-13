@@ -24,10 +24,27 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/Home.vue')
   },
   {
+    path: '/winningList',
+    name: 'WinningList',
+    component: () => import('../views/winningName/WinningList.vue')
+  },
+  {
+    path: '/rankingList',
+    name: 'RankingList',
+    component: () => import('../views/rankingList/RankingList.vue')
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: '404',
+    component: () => import('../views/login/Login.vue')
+
+  },
+  {
     path: '/flopGame',
     name: 'FlopGame',
     component: () => import('../views/flopGame.vue')
   }
+
 ]
 
 const router = createRouter({
