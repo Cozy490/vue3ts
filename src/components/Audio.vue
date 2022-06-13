@@ -51,16 +51,13 @@ export default {
 
 <style lang="less" scoped>
 .audio{
-  width: 60px;
-  height: 60px;
-  background-color: aquamarine;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   text-align: center;
-  padding-top: 10px;
-  box-sizing: border-box;
   img{
-      width: 40px;
-      height: 40px;
+      width: 100%;
+      height: 100%;
   }
   @-webkit-keyframes rotation{
       from {-webkit-transform: rotate(0deg);}
