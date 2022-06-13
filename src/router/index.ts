@@ -38,6 +38,11 @@ const routes: Array<RouteRecordRaw> = [
     name: '404',
     component: () => import('../views/login/Login.vue')
 
+  },
+  {
+    path: '/flopGame',
+    name: 'FlopGame',
+    component: () => import('../views/flopGame.vue')
   }
 
 ]
