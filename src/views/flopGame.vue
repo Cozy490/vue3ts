@@ -1,5 +1,9 @@
 <template>
-  <div>
+  <div class="level1Bg">
+    <div class="step">
+      <van-progress :percentage="value" stroke-width="11.5"/>
+      <div class="showSecond">{{second}}s</div>
+    </div>
     <div class="flopBox">
       <div class="flopOnly" v-for="(item,index) in arr" :key="item.id" @click="clickFlop(item,index)">
        <img :src="item.url" alt="" srcset="">
@@ -10,8 +14,12 @@
 
 <script>
 import { reactive, toRefs } from 'vue'
+import { Progress } from 'vant'
 // {url:require('./img/card.png')}
 export default {
+  components: {
+    [Progress.name]: Progress
+  },
   setup () {
     const state = reactive({
       count: 0,
@@ -68,12 +76,28 @@ export default {
           { url: require('./img/22.png'), id: 22 }]
       ],
       arr2: [],
-      flag: ''
+      flag: '',
+      width: 504,
+      value: 100,
+      second: 10
     })
 
     const func = setTimeout(() => {
       state.arr2 = state.arr1[Math.floor(Math.random() * state.arr1.length)]
     }, 0)
+    const setFunc = setInterval(() => {
+      if (state.second === 1) {
+        clearInterval(setFunc)
+        console.log(111)
+      }
+      state.second--
+    }, 1000)
+    const setFuncStep = setInterval(() => {
+      if (state.second === 0) {
+        clearInterval(setFuncStep)
+      }
+      state.value -= 1
+    }, 100)
     const clickFlop = (item, index) => {
       if (item.url.indexOf('card') === -1) {
         return
@@ -97,25 +121,64 @@ export default {
         })
         console.log(arr3, ' state.arr3')
         if (arr3.length === state.arr.length / 2) {
-          alert(1111)
+          clearInterval(setFunc)
+          clearInterval(setFuncStep)
         }
       }, 500)
     }
     return {
       ...toRefs(state),
       clickFlop,
-      func
+      func,
+      setFunc,
+      setFuncStep
     }
   }
 }
 </script>
 
 <style lang="less" scoped>
+.level1Bg {
+  width: 100%;
+  height: 1332px;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  background:url(./img/Level1.png) no-repeat;
+  background-size: 100%;
+  .step {
+    width: 504px;
+    height: 20px;
+    position: absolute;
+    top: 275.5px;
+    left: 90px;
+    // background: url(./img/step.png) no-repeat;
+    // background-size: cover;
+    border-radius: 40px;
+    /deep/ .van-progress__pivot {
+      display: none;
+    }
+    /deep/ .van-progress {
+      background: transparent;
+    }
+    /deep/ .van-progress__portion {
+      background: url(./img/step.png) no-repeat;
+      background-size: cover;
+    }
+    .showSecond {
+      position: absolute;
+      top: -25px;
+      right: -80px;
+      font-size: 50px;
+      color: red;
+    }
+  }
+}
 .flopBox {
   width: 100%;
   height: auto;
   position: absolute;
-  top: 0px;
+  top: 320px;
   padding: 0 88px;
   box-sizing: border-box;
   .flopOnly {
